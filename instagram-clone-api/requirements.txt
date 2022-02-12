@@ -3,3 +3,5 @@ uvicorn
 black
 sqlalchemy
 psycopg2-binary
+passlib
+bcrypt

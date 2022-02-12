@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from services.db_service import _add_tables
+from utils.db_util import _add_tables
 from routers import auth_router
 
 app = FastAPI()
