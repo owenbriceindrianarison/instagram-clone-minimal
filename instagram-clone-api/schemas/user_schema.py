@@ -1,4 +1,5 @@
-from pydantic import BaseMode
+from pydantic import BaseModel
+
 from datetime import datetime
 
 
@@ -8,9 +9,11 @@ class UserBase(BaseModel):
     password: str
 
 
-class User(UserBase):
+class User(BaseModel):
     id: int
-    date_created: datetime
+    username: str
+    email: str
+    created_at: datetime
 
     class Config:
         orm_mode = True
