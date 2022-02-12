@@ -1,4 +1,5 @@
 from sqlalchemy.orm.session import Session
+from typing import List
 from schemas.post_schema import PostBase, PostDisplay
 from models.post_model import Post
 
@@ -14,3 +15,7 @@ def create_post(db: Session, request: PostBase) -> PostDisplay:
     db.commit()
     db.refresh(new_post)
     return new_post
+
+
+def get_all_posts(db: Session) -> List[PostDisplay]:
+    return db.query(Post).all()
