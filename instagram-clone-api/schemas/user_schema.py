@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-
 from datetime import datetime
 
 
@@ -9,7 +8,7 @@ class UserBase(BaseModel):
     password: str
 
 
-class User(BaseModel):
+class UserDisplay(BaseModel):
     id: int
     username: str
     email: str

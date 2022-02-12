@@ -1,5 +1,7 @@
 from database.db import Base, engine, SessionLocal
 
+from models import user_model, post_model
+
 
 def _add_tables():
     print("Creating database...")
