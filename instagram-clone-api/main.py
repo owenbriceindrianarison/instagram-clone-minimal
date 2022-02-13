@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from utils.db_util import _add_tables
+from fastapi.staticfiles import StaticFiles
+from utils.util import add_tables
 from routers import auth_router, post_router
 
 app = FastAPI()
@@ -7,4 +8,6 @@ app = FastAPI()
 app.include_router(auth_router.router)
 app.include_router(post_router.router)
 
-_add_tables()
+add_tables()
+
+app.mount("/images", StaticFiles(directory="images"), name="images")

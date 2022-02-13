@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm.session import Session
 from schemas.user_schema import UserDisplay, UserBase
-from utils.db_util import get_db
+from utils.util import get_db
 from services.user_service import create_user
 
 router = APIRouter(prefix="/auth", tags=["authentication"])
