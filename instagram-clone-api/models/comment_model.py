@@ -5,13 +5,11 @@ from sqlalchemy.sql.schema import ForeignKey
 from datetime import datetime
 
 
-class Post(Base):
-    __tablename__ = "posts"
+class Comment(Base):
+    __tablename__ = "comments"
     id = Column(Integer, primary_key=True, index=True)
-    image_url = Column(String)
-    image_url_type = Column(String)
-    caption = Column(String)
+    text = Column(String)
+    username = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow)
-    user_id = Column(Integer, ForeignKey("users.id"))
-    user = relationship("User", back_populates="items")
-    comments = relationship("Comment", back_populates="post")
+    post_id = Column(Integer, ForeignKey("posts.id"))
+    post = relationship("Post", back_populates="comments")

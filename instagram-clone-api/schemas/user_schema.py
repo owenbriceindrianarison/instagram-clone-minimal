@@ -18,6 +18,13 @@ class UserDisplay(BaseModel):
         orm_mode = True
 
 
+class AccessToken(BaseModel):
+    access_token: str
+    token_type: str
+    user_id: int
+    username: str
+
+
 class UserAuth(BaseModel):
     id: int
     username: str

@@ -4,7 +4,7 @@ import random
 import shutil
 
 from database.db import Base, engine, SessionLocal
-from models import user_model, post_model
+from models import user_model, post_model, comment_model
 
 
 def add_tables():
