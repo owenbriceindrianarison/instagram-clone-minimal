@@ -1,4 +1,5 @@
 from fastapi import HTTPException, status
+from sqlalchemy import desc
 from sqlalchemy.orm.session import Session
 from typing import List
 from schemas.post_schema import PostBase, PostDisplay
@@ -20,7 +21,7 @@ def create_post(db: Session, current_user: UserAuth, request: PostBase) -> PostD
 
 
 def get_all_posts(db: Session) -> List[PostDisplay]:
-    return db.query(Post).all()
+    return db.query(Post).order_by(desc(Post.created_at)).all()
 
 
 def delete_post(db: Session, current_user: UserAuth, id: int):
@@ -34,7 +35,6 @@ def delete_post(db: Session, current_user: UserAuth, id: int):
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Only post creator can delete post",
         )
-
     db.delete(post)
     db.commit()
     return "ok"

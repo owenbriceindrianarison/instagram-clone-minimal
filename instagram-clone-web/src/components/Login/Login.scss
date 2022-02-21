@@ -1,0 +1,15 @@
+.login {
+  // display: flex;
+  justify-content: center;
+  .header {
+    height: 70px;
+  }
+  .body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .actions {
+    margin: 15px 0 20px;
+  }
+}
